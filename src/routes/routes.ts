@@ -1,4 +1,4 @@
 export enum Routes {
-  LIST = "/api/list",
+  PODCAST_LIST = "/api/podcast/list",
   ESPISODE = "/api/podcasts",
 }

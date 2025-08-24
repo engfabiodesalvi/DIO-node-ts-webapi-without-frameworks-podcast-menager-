@@ -1,6 +1,8 @@
 export interface PodcastModel {
-  podcastName: string;
-  episode: string;
-  videoId: string;
-  categories: string[];
+  "id": string;
+  "name": string;
+  "author": string[];
+  "description": string;
+  "cover_url": string,
+  "categories": string[]  
 }

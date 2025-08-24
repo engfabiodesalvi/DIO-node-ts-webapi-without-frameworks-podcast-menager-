@@ -1,26 +1,230 @@
-[
-  {
-    "podcastName": "flow",
-    "episode": "CBUM - Flow #319",
-    "videoId": "pQSuQmUfS30",
-    "categories": ["saúde", "esporte", "bodybuilder"]
-  },
-  {
-    "podcastName": "flow",
-    "episode": "RUBENS BARRICHELLO - Flow #339",
-    "videoId": "4KDGTdiOV4I",
-    "categories": ["esporte", "corrida"]
-  },
-  {
-    "podcastName": "flow",
-    "episode": "Felipão - Flow #339",
-    "videoId": "00000",
-    "categories": ["esporte", "programação"]
-  },
-  {
-    "podcastName": "venus",
-    "episode": "Xuxa",
-    "videoId": "00000",
-    "categories": ["humor"]
-  }
-]
+{
+  "podcasts": [
+    {
+      "id": "@FlowPodcast",
+      "name": "Flow Podcast",
+      "author": ["Igor Coelho - Igor 3k"],
+      "description": "Podcast sobre tecnologia e inovação em conversas abertas.",
+      "cover_url": "https://yt3.googleusercontent.com/ytc/AIdro_kEF_Lu8DNUpCOHSE9xZZRFjXy9kH_G8O9yDP3K9J6o14g=s176-c-k-c0x00ffffff-no-rj-mo",
+      "categories": ["cultura", "entretenimento", "ciência","tecnologia", "inovação","saúde", "esporte", "bodybuilder", "desenvolvimento pessoal", "negócio", "empreendedorismo"]
+    },
+    {
+      "id": "@venuspdc",
+      "name": "Venus Podcast",
+      "author": [
+        "Criss Paiva",
+        "Yasmin Ali"
+      ],
+      "description": "Podcast é focado em apresentar a visão feminina sobre temas atuais e temáticas diversas.",
+      "cover_url": "https://yt3.ggpht.com/8i3GiRMxI1ujPmStPzFjG59OWMFoho64iHdK67PoBWPqiL6cwY59LMCzAZ0ORt9ejxYodoplrw=s176-c-k-c0x00ffffff-no-rj-mo",
+      "categories": ["cultura pop","entretenimento", "ciência", "espiritualidade", "ufologia", "educação", "criadores de conteúdo", "humor", "bastidores pessoais", "true crime", "investigações", "relações pessoais", "reflexões"]        
+    },
+    {
+      "id": "@SpaceToday",
+      "name": "SpaceToday",
+      "author": ["Sergio Sacani"],
+      "description": "Portal de conteúdo sobre astronomia e ciência onde apresenta notícias, análises e vídeos sobre o universo de forma acessível.",
+      "cover_url": "https://yt3.ggpht.com/JA39FTXDNDI86qOEzL8pI5EmYBvuQamyP7iJHnR0DexKjrc9mGijSc0BVkOYZx6QmczLixY0OfU=s176-c-k-c0x00ffffff-no-rj-mo",
+    "categories": ["astronomia", "astrofísica", "cosmologia", "exploração espacial", "missções históricas", "habitabilidade", "vida extraterrestre", "tecnologia ciêntífica", "observação"]
+    },    
+    {
+      "id": "@avioesemusicas",
+      "name": "Aviões e Músicas",
+      "author": ["Lito Sousa"],
+      "description": "Canal focado em aviação, com videos que abordam os mistérios da aviação e análise técnica.",
+      "cover_url": "https://yt3.ggpht.com/qjnvEA6RHYQ9os0qYpzumico-4wrC1Omdhk_FleTgZWGGyT_f_ogFLEg1hXyI3UlelOmWGSaVg=s176-c-k-c0x00ffffff-no-rj-mo",
+    "categories": ["acidentes aéreos", "segurança", "funcinamento técnico da aviação", "curiosidades", "histórias", "psicologia", "aerofobia", "tecnologia", "futuro da aviação", "entrevistas", "opniões"]
+    },
+    {
+      "id": "@LeandroTorneiro",
+      "name": "Leandro Torneiro",
+      "author": "[Leandro Torneiro",
+      "description": "Canal apresenta conteúdo sobre serralheria e servições em torno. ",
+      "cover_url": "https://yt3.googleusercontent.com/ytc/AIdro_nT9aZa2IWqV5RpmJgOdnsbJ14BXQMqLFAR4apulxmXj9U=s176-c-k-c0x00ffffff-no-rj-mo",
+      "categories": ["serralheria", "serviços de torno", "gambiarras"]
+    }              
+  ],
+  "videos": [
+    {
+      "videoId": "tHbFukPmM9s",
+      "podcastId": "@FlowPodcast",
+      "title": "Vitor Metaforando - Flow Podcast #154",
+      "description": "Flow Podcast é uma conversa descontraída, longa e livre, como um papo de boteco entre amigos. No Flow garantimos um espaço onde o convidado pode desenvolver suas ideias sem qualquer tipo de pauta ou as restrições normais de outras mídias, como agenda política/filosófica.",
+      "duration": 9192,
+      "release_date": "2020-07-05T00:00:00Z",
+      "views": 7831283,
+      "likes": 361000,
+      "tags": ["vitor metaforando", "entrevista"],
+      "language": "pt-BR"    
+    },
+    {
+      "videoId": "qOer7KEMHIo",
+      "podcastId": "@FlowPodcast",
+      "title": "Lucas Inutilismo - Flow Podcast #212",
+      "description": "Flow Podcast é uma conversa descontraída, longa e livre, como um papo de boteco entre amigos. No Flow garantimos um espaço onde o convidado pode desenvolver suas ideias sem qualquer tipo de pauta ou as restrições normais de outras mídias, como agenda política/filosófica.",
+      "duration": 10322,
+      "release_date": "2020-10-02T00:00:00Z",
+      "views": 7831283,
+      "likes": 361000,
+      "tags": ["lucas inutilismo", "entrevista"],
+      "language": "pt-BR"    
+    },
+    {
+      "videoId": "6516Pl4qrfw",
+      "podcastId": "@FlowPodcast",
+      "title": "Afonso Padilha - Flow Podcast #202",
+      "description": "Flow Podcast é uma conversa descontraída, longa e livre, como um papo de boteco entre amigos. No Flow garantimos um espaço onde o convidado pode desenvolver suas ideias sem qualquer tipo de pauta ou as restrições normais de outras mídias, como agenda política/filosófica.",
+      "duration": 9329,
+      "release_date": "2020-09-13T00:00:00Z",
+      "views": 3039747,
+      "likes": 132000,
+      "tags": ["afonso padilha", "entrevista"],
+      "language": "pt-BR"    
+    },
+    {
+      "videoId": "7KiA3xX_NWA",
+      "podcastId": "@venuspdc",
+      "title": "Quem é o hétero?",
+      "description": "Neste episódio, Criss, Yas e suas amigas se envolvem em um jogo divertido para descobrir quem dos convidados é hétero! Você consegue descobrir antes que todo mundo quem entre os participantes está tentando esconder o jogo?\nEntre risadas e revelações, aquelas minas debatem tentam identificar o impostor antes que ele se revele. Acompanhe para descobrir se as mulheres são realmente detetives mais experientes da internet!",
+      "duration": 1659,
+      "release_date": "2024-01-01T00:00:00Z",
+      "views": 520747,
+      "likes": 28000,
+      "tags": ["hétero", "jogo", "impostor"],
+      "language": "pt-BR"    
+    },
+    {
+      "videoId": "wCCDkCEFNPw",
+      "podcastId": "@venuspdc",
+      "title": "Quem não é hétero?",
+      "description": "Neste episódio, Criss, Yas, Raquel Real e Letícia Panar se envolvem em um jogo divertido para descobrir quem dos convidados NÃO É HÉTERO! Você consegue descobrir antes que todo mundo quem entre os participantes está tentando esconder o jogo?\nEntre risadas e revelações, aquelas minas debatem tentam identificar o impostor antes que ele se revele. Acompanhe para descobrir se as mulheres são realmente detetives mais experientes da internet!",
+      "duration": 1897,
+      "release_date": "2025-01-20T00:00:00Z",
+      "views": 348561,
+      "likes": 21000,
+      "tags": ["hétero", "jogo", "impostor"],
+      "language": "pt-BR"    
+    },
+    {
+      "videoId": "sEC43HFEtlY",
+      "podcastId": "@venuspdc",
+      "title": "Mhel Marrer - Venus Podcast #02",
+      "description": "Mhel Marrer - Venus Podcast #02",
+      "duration": 11100,
+      "release_date": "2021-02-02T00:00:00Z",
+      "views": 345868,
+      "likes": 24000,
+      "tags": ["entrevista", "mhel marrer"],
+      "language": "pt-BR"    
+    },    
+    {
+      "videoId": "C8wKZLSqBMo",
+      "podcastId": "@SpaceToday",
+      "title": "O que aconteceu antes do big bang? Veja a resposta de Stephen Hawking",
+      "description": "O que aconteceu antes do big bang? Veja a resposta de Stephen Hawking",
+      "duration": 950,
+      "release_date": "2018-03-10T00:00:00Z",
+      "views": 1306509,
+      "likes": 95000,
+      "tags": ["big bang", "stephen hawking"],
+      "language": "pt-BR"    
+    },
+    {
+      "videoId": "5V4Et5Bdlv0",
+      "podcastId": "@SpaceToday",
+      "title": "Estudo sugere que existam 4 civilizações malignas na Via Láctea",
+      "description": "O novo artigo, que ainda não foi revisado por pares, coloca uma questão peculiar: quais são as chances de que os humanos possam um dia entrar em contato com uma civilização alienígena hostil que seja capaz de invadir nosso planeta?",
+      "duration": 1036,
+      "release_date": "2022-06-02T00:00:00Z",
+      "views": 1301509,
+      "likes": 89000,
+      "tags": ["extraterrestrial", "seti"],
+      "language": "pt-BR"    
+    },
+    {
+      "videoId": "ajWXeoWyOZ0",
+      "podcastId": "@SpaceToday",
+      "title": "EUA, Canadá, China e Uruguai, ovnis por todo lado, o que esta acontecendo?",
+      "description": "Desde sexta-feria, dia 10 de fevereiro de 2023, não só o avistamento, mas a intercepção e o abatimento de OVNIs tem se intensificado pelo mundo afora, na seta um OVNI foi abatido no Alasca, no Sábado no Canadá, no domingo, dia 12, um OVNI foi abatido na região do Lago Michigan e outro foi abatido na China. O que será que esta' acontecendo? Muito provavelmente esses objetos são balões como disse um senador dos EUA.\nNo Uruguai a situação é diferente, pois foram avistadas luzes, como aquelas avistadas no sul do Brasil, então muito provavelmente são satélites da órbita baixa da Terra.",
+      "duration": 1032,
+      "release_date": "2023-02-12T00:00:00Z",
+      "views": 1234074,
+      "likes": 98000,
+      "tags": ["uap", "life"],
+      "language": "pt-BR"    
+    },    
+    {
+      "videoId": "Wnh_RhK4qas",
+      "podcastId": "@avioesemusicas",
+      "title": "AF 477 - A história do acidente que mudou a aviação comercial EP.477",
+      "description": "Acidente Airfrance A477 mudou o rumo da aviação comercial. Nesse vídeo, vou explicar o que ocorreu.",
+      "duration": 2057,
+      "release_date": "2019-05-30T00:00:00Z",
+      "views": 17342561,
+      "likes": 513000,
+      "tags": ["airfrance", "af447"],
+      "language": "pt-BR"    
+    },
+    {
+      "videoId": "rvXiL7xsCWU",
+      "podcastId": "@avioesemusicas",
+      "title": "Entenda o acidente do voo da Lamia com o time da Chapecoense EP.522",
+      "description": "Entenda o acidente do voo da Lamia com o time da Chapecense EP.522",
+      "duration": 1140,
+      "release_date": "2019-11-24T00:00:00Z",
+      "views": 8770102,
+      "likes": 386000,
+      "tags": ["chapecoence", "acidente"],
+      "language": "pt-BR"    
+    },
+    {
+      "videoId": "7i-j8nVxxJs",
+      "podcastId": "@avioesemusicas",
+      "title": "O que realmente aconteceu no acidente com os mamonas EP.267",
+      "description": "O acidente com os mamonas assassinas chocou o país em 02 de Março de 1996. A banda era muito amada no Brasil e teve sua carreira encerrada pelo trágico acidente de avião.",
+      "duration": 1022,
+      "release_date": "2018-03-01T00:00:00Z",
+      "views": 8529428,
+      "likes": 400000,
+      "tags": ["acidente", "mamonas assassinas"],
+      "language": "pt-BR"    
+    },
+    {
+      "videoId": "GpWD5r1VcNg",
+      "podcastId": "@LeandroTorneiro",
+      "title": "O pobre tem que ser estudado pela nasa",
+      "description": "O pobre tem que ser estudado pela nasa",
+      "duration": 745,
+      "release_date": "2018-01-19T00:00:00Z",
+      "views": 8406587,
+      "likes": 185000,
+      "tags": ["pneu", "gambiarra", "torneiro"],
+      "language": "pt-BR"    
+    },
+    {
+      "videoId": "WI6lKcNRmzk",
+      "podcastId": "@LeandroTorneiro",
+      "title": "Fabricando ferramentas no torno e na fresa",
+      "description": "Fabricando ferramentas no torno e na fresa",
+      "duration": 745,
+      "release_date": "2018-01-24T00:00:00Z",
+      "views": 6415473,
+      "likes": 194000,
+      "tags": ["torneiromecanico", "usinagem", "leandrotorneiro"],
+      "language": "pt-BR"    
+    },
+    {
+      "videoId": "vd3ULOdX1pw",
+      "podcastId": "@LeandroTorneiro",
+      "title": "Faça você mesmo seu balcão de cozinha americana parte 1",
+      "description": "Faça você mesmo seu balcão de cozinha americana parte 1",
+      "duration": 1519,
+      "release_date": "2018-06-23T00:00:00Z",
+      "views": 3566950,
+      "likes": 54000,
+      "tags": ["reforma", "construção", "pedreiro"],
+      "language": "pt-BR"    
+    }    
+  ]
+}
+
