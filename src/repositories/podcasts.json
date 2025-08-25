@@ -38,13 +38,13 @@
     {
       "id": "@LeandroTorneiro",
       "name": "Leandro Torneiro",
-      "author": "[Leandro Torneiro",
+      "author": ["Leandro Torneiro"],
       "description": "Canal apresenta conteúdo sobre serralheria e servições em torno. ",
       "cover_url": "https://yt3.googleusercontent.com/ytc/AIdro_nT9aZa2IWqV5RpmJgOdnsbJ14BXQMqLFAR4apulxmXj9U=s176-c-k-c0x00ffffff-no-rj-mo",
       "categories": ["serralheria", "serviços de torno", "gambiarras"]
     }              
   ],
-  "videos": [
+  "episodes": [
     {
       "videoId": "tHbFukPmM9s",
       "podcastId": "@FlowPodcast",

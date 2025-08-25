@@ -2,7 +2,7 @@ import * as http from "http";
 
 import {
   getListPodcasts,
-  getFilterEpisodes,
+  getListEpisodes,
 } from "./controllers/podscasts-controller";
 
 import { Routes } from "./routes/routes";
@@ -18,7 +18,7 @@ export const app = async (
   const baseUrl = request.url?.split("?")[0];
   const defaultContent = { "Content-Type": ContentType.JSON };
 
-  let login = false;
+  let authorization = false;
   let body = '';
 
   //if (request.method === HttpMethod.GET) {
@@ -35,21 +35,22 @@ export const app = async (
       try {
           const parsedBody = JSON.parse(body);
           console.log('Parsed JSON body:', parsedBody);
-          if (process.env.USER == parsedBody.user &&
-              process.env.PASSWORD == parsedBody.password
+          if (process.env.TOKEN == parsedBody.token
           ) {
-            login = true;
+            authorization = true;
           } else {
-            login = false;
+            authorization = false;
           }
-          console.log(login);
+          console.log(authorization);
 
-          if (login) {
+          if (authorization) {
             // get methods
-            if (request.method === HttpMethod.GET && baseUrl === Routes.PODCAST_LIST) {
+            if (request.method === HttpMethod.GET &&          // GET-List posdcast with or
+                baseUrl === Routes.PODCAST_LIST) {            // without queryString
               await getListPodcasts(request, response);
-            } else if (request.method === HttpMethod.GET && baseUrl === Routes.ESPISODE) {
-              await getFilterEpisodes(request, response);
+            } else if (request.method === HttpMethod.GET &&   // GET-List episodes with or
+                       baseUrl === Routes.ESPISODE_LIST) {    // without queryString
+              await getListEpisodes(request, response);
             } else {
               response.writeHead(StatusCode.NotFound, defaultContent);
               response.write(JSON.stringify({
@@ -60,13 +61,18 @@ export const app = async (
           } else {
               response.writeHead(StatusCode.Forbidden, defaultContent);
               response.write(JSON.stringify({
-                message: "User not found!"
+                message: "Unauthorized access!"
               }));
               response.end();    
           }          
 
       } catch (e) {
           console.error('Error parsing JSON:', e);
+              response.writeHead(StatusCode.Forbidden, defaultContent);
+              response.write(JSON.stringify({
+                message: "Unauthorized access! Error parsing JSON!"
+              }));             
+              response.end();             
       }
     })
   //}

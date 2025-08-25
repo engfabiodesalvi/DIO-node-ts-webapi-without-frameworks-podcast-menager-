@@ -1,12 +1,12 @@
-import { PodcastTransferModel } from "../models/podcast-transfer-model";
-import { repositoryPodcast } from "../repositories/podcasts-repository";
+import { EpisodeTransferModel } from "../models/episode-transfer-model";
+import { repositoryEpisode } from "../repositories/episodes-repository";
 import { StatusCode } from "../utils/status-code";
 
-export const serviceFilterEpisodes = async (
+export const serviceListEpisodes = async (
   queryString: string | undefined
-): Promise<PodcastTransferModel> => {
-  //define a interface de retorno
-  let responseFormat: PodcastTransferModel = {
+): Promise<EpisodeTransferModel> => {
+  //define a interface de retorno - contrato
+  let responseFormat: EpisodeTransferModel = {
     statusCode: 0,
     body: [],
   };
@@ -16,7 +16,7 @@ export const serviceFilterEpisodes = async (
   //query string parameters
   //const queryStringParameters = new URLSearchParams(podcastName?.split("?")[1] || "");
 
-  const data = await repositoryPodcast(queryString);
+  const data = await repositoryEpisode(queryString);
 
   //console.log("");
 
