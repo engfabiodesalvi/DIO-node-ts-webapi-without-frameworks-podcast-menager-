@@ -42,9 +42,11 @@ export const repositoryPodcastAdd = async (
                 }
 
             }).length) {
-                console.log("item não cadastrado");
+              console.log("item não cadastrado");
+
+              console.log("item adicionado");
             } else {
-                console.log("item cadastrado");
+              console.log("item cadastrado");
             }
             
         }
