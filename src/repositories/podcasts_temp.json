@@ -1,0 +1,77 @@
+{
+    "poscasts": [
+        {
+            "id": "@PrincipedaBurguesia",
+            "name": "Príncipe da Burguesia",
+            "author": [
+            "Lord Vinheteiro - Fabrício Vinheteiro"
+            ],
+            "subscribers": 168000,
+            "description": "O Príncipe da Burguesia é o canal de notícias mais sincero do Brasil focado para o público da Classe Média Alta Brasileira. Este canal é livre de apedeutas! Inscreva-se!",
+            "cover_url": "https://yt3.ggpht.com/RXKPims6v21WeIuEdln2ndrgzx8RbWmqLkB_GvH-weRyK5YhCl5khbdwwnjwuAiGQ3NRpXmmyg=s176-c-k-c0x00ffffff-no-rj-mo",
+            "categories": [
+            "humor",
+            "classe média alta",
+            "música eudita",
+            "música moderna",
+            "análise crítica",
+            "polarização",
+            "experiências pessoais",
+            "eventos inusitados"
+            ]    
+        },
+        {
+            "id": "@ancap_su",
+            "name": "ANCAPSU",
+            "author": [
+            "Peter Turguniev - Ricardo Albuquerque"
+            ],
+            "subscribers": 834000,
+            "description": "Canal de notícias rápidas com viés libertário, bate papo, vlogs e outros assuntos ligados ao libertarianismo e anarcocapitalismo. Seja bem-vindo.",
+            "cover_url": "https://yt3.ggpht.com/OiGfmXj5WWj_LeBHjtknFEuW9nBCvkacZh26e_MEQHT-D_TimRn0ry3_ZrsT1gu3r6jTqRtgwqo=s176-c-k-c0x00ffffff-no-rj-mo",
+            "categories": [
+            "anarcocapitalismo",
+            "filsofia libertária",
+            "política", "estado", "economia",
+            "crises geoplíticas",
+            "conflits internacionais",
+            "economia alternativa",
+            "bitcoin",
+            "crítica social",
+            "narrativas políticas"
+            ]    
+        }
+    ],
+    "episodes": [
+        {
+            "videoId": "lfO05ccNMlo",
+            "podcastId": "@PrincipedaBurguesia",
+            "title": "Como Perdi 2 Milhões em 2 Minutos | Vinheteriro |",
+            "description": "Esta é a verdadeira história sobre o que aconteceu com a senha da Wallet do Lord Vinheteiro. Como ele perdeu os 2 milhões de reais em 4 Bitcoins.",
+            "duration": 474,
+            "release_date": "2024-11-22T00:00:00Z",
+            "views": 184499,
+            "likes": 13000,
+            "categories": ["vinheteiro", "lorde"],
+            "language": "pt-BR"   
+        },
+        {
+            "videoId": "4_LBEamyok0",
+            "podcastId": "@ancap_su",
+            "title": "VICE-PRESIDENTE da ONU pede OFICIALMENTE MUDANÇA de SEDE da COP30: \"DESRESPEITO ao MULTILATERALISMO\"",
+            "description": "VICE-PRESIDENTE da ONU pede OFICIALMENTE MUDANÇA de SEDE da COP30: \"DESRESPEITO ao MULTILATERALISMO\"",
+            "duration": 882,
+            "release_date": "YYYY-MM-DDTHH:MM:SSZ",
+            "views": 116943,
+            "likes": 21000,
+            "categories": [
+                "dipomacia internaciona & ONU",
+                "multilateralismo & cooperação global",
+                "segurança climática & COP30",
+                "política internacional & geopolítica",
+                "críticas institucinais"
+            ],
+            "language": "pt-BR"   
+        }        
+    ]
+}

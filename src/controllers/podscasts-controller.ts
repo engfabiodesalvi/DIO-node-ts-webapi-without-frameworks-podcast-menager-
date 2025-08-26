@@ -5,6 +5,8 @@ import { serviceListEpisodes } from "../services/filter-epsodes-service";
 import { ContentType } from "../utils/content-type";
 import { PodcastTransferModel } from "../models/podcast-transfer-model";
 import { EpisodeTransferModel } from "../models/episode-transfer-model";
+import { serviceAddPodcasts } from "../services/add-podcast-service";
+import { PodcastModel } from "../models/podcast-model";
 
 const defaultContent = { "Content-Type": ContentType.JSON };
 
@@ -30,4 +32,18 @@ export const getListEpisodes = async (
   res.write(JSON.stringify(content.body));
 
   res.end();
+};
+
+export const setPodcast = async (
+  req: IncomingMessage,
+  res: ServerResponse,
+  body: PodcastModel
+) => {
+  const content: PodcastTransferModel = await serviceAddPodcasts(req.url, body);
+
+  res.writeHead(content.statusCode, defaultContent);
+  res.write(JSON.stringify(content.body));
+
+  res.end();
+
 };

@@ -25,16 +25,19 @@ export const repositoryPodcast = async (
     //console.log();
     jsonFile = jsonFile['podcasts'].filter(
         (podcast: PodcastModel) => {
+
           // check if id is non-null value and check json registers
           if (queryStringParameters.get("id") || "" !== "") {
             if (!podcast.id.includes(queryStringParameters.get("id") || ""))
               return false;
           }
+
           // check if name is non-null value and check json registers
           if (queryStringParameters.get("name") || "" !== "") {
             if (!podcast.name.toLowerCase().includes(queryStringParameters.get("name")?.toLowerCase() || ""))
               return false;
           }
+
           // check author name is non-null value and check json registers
           if (queryStringParameters.get("author") || "" !== "") {
             let findAuthor = true;
@@ -48,16 +51,29 @@ export const repositoryPodcast = async (
             if (!findAuthor) 
               return findAuthor;
           }
+
+          // check if subscribers is non-null value and check json registers
+          if (queryStringParameters.get("subscribers")?.split(",").length === 2) {
+              const subscribers: number[] = [
+                  parseInt(queryStringParameters.get("subscribers")?.split(",")[0] || "0"), // min
+                  parseInt(queryStringParameters.get("subscribers")?.split(",")[1] || "0")  // max              
+              ];               
+              if (!(podcast.subscribers >= subscribers[0] && podcast.subscribers <= subscribers[1]))
+                  return false;
+          }            
+
           // check if description is non-null value and check json registers
           if (queryStringParameters.get("description") || "" !== "") {
             if (!podcast.description.toLowerCase().includes(queryStringParameters.get("description")?.toLowerCase() || ""))
               return false;
           }
+
           // check if cover_url is non-null value and check json registers
           if (queryStringParameters.get("cover_url") || "" !== "") {
             if (!podcast.cover_url.includes(queryStringParameters.get("cover_url") || ""))
               return false;
           }
+
           // check if categories is non-null value and check json registers
           if (queryStringParameters.get("categories") || "" !== "") {
             let findCategories = false;

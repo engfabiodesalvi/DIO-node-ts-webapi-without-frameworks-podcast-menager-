@@ -65,20 +65,34 @@ export const repositoryEpisode = async (
             }          
 
             // check if release_date is non-null value and check json registers
-            if (queryStringParameters.get("release_date") || "" !== "") {
-                if (!episode.release_date.toLowerCase().includes(queryStringParameters.get("release_date")?.toLowerCase() || ""))
+            if (queryStringParameters.get("release_date")?.split(",").length === 2) {
+                const release_date: Date[] = [
+                    new Date(queryStringParameters.get("release_date")?.split(",")[0] || "0"),  // min
+                    new Date(queryStringParameters.get("release_date")?.split(",")[1] || "0"),  // max    
+                    new Date(episode.release_date),  // json date
+                ];    
+
+                if (!(release_date[2] >= release_date[0] && release_date[2] <= release_date[1]))
                     return false;
             }          
 
             // check if views is non-null value and check json registers
-            if (parseInt(queryStringParameters.get("views") || "0") !== 0) {
-                if (!(episode.views === parseInt(queryStringParameters.get("views") || "0")))
+            if (queryStringParameters.get("views")?.split(",").length === 2) {
+                const views: number[] = [
+                    parseInt(queryStringParameters.get("views")?.split(",")[0] || "0"), // min
+                    parseInt(queryStringParameters.get("views")?.split(",")[1] || "0")  // max              
+                ];               
+                if (!(episode.views >= views[0] && episode.views <= views[1]))
                     return false;
             }  
 
             // check if likes is non-null value and check json registers
-            if (parseInt(queryStringParameters.get("likes") || "0") !== 0) {
-                if (!(episode.likes === parseInt(queryStringParameters.get("likes") || "0")))
+            if (queryStringParameters.get("likes")?.split(",").length === 2) {
+                const likes: number[] = [
+                    parseInt(queryStringParameters.get("likes")?.split(",")[0] || "0"), // min
+                    parseInt(queryStringParameters.get("likes")?.split(",")[1] || "0")  // max              
+                ];               
+                if (!(episode.likes >= likes[0] && episode.likes <= likes[1]))
                     return false;
             }            
 

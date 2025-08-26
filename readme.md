@@ -37,6 +37,7 @@ Este projeto visa facilitar o acesso e a organização de episódios de podcasts
     "author": [
       "Igor Coelho - Igor 3k"
     ],
+    "subscribers": 5900000,
     "description": "Podcast sobre tecnologia e inovação em conversas abertas.",
     "cover_url": "https://yt3.googleusercontent.com/ytc/AIdro_kEF_Lu8DNUpCOHSE9xZZRFjXy9kH_G8O9yDP3K9J6o14g=s176-c-k-c0x00ffffff-no-rj-mo",
     "categories": [
@@ -60,6 +61,7 @@ Este projeto visa facilitar o acesso e a organização de episódios de podcasts
       "Criss Paiva",
       "Yasmin Ali"
     ],
+    "subscribers": 1310000,    
     "description": "Podcast é focado em apresentar a visão feminina sobre temas atuais e temáticas diversas.",
     "cover_url": "https://yt3.ggpht.com/8i3GiRMxI1ujPmStPzFjG59OWMFoho64iHdK67PoBWPqiL6cwY59LMCzAZ0ORt9ejxYodoplrw=s176-c-k-c0x00ffffff-no-rj-mo",
     "categories": [
@@ -84,7 +86,7 @@ Este projeto visa facilitar o acesso e a organização de episódios de podcasts
 
 ### Buscar os podcasts
 
-- **Endpoint:** `GET /api/podcast/list?id={id}t&name={nome}&author={autor}&description={descrição}&cover_url={url_da_capa}&categories={categoria}`
+- **Endpoint:** `GET /api/podcast/list?id={id}t&name={nome}&author={autor}&subscribers={minimo,maximo}&=description={descrição}&cover_url={url_da_capa}&categories={categoria}`
 - **Token:** Envie o token de autorização no formato JSON dentro campo de dados.
 ```json
 {"token": "user1234abcd"}
@@ -102,6 +104,7 @@ E será retornado o seguinte arquivo JSON:
     "author": [
       "Sergio Sacani"
     ],
+    "subscribers": 2090000,
     "description": "Portal de conteúdo sobre astronomia e ciência onde apresenta notícias, análises e vídeos sobre o universo de forma acessível.",
     "cover_url": "https://yt3.ggpht.com/JA39FTXDNDI86qOEzL8pI5EmYBvuQamyP7iJHnR0DexKjrc9mGijSc0BVkOYZx6QmczLixY0OfU=s176-c-k-c0x00ffffff-no-rj-mo",
     "categories": [
@@ -166,7 +169,8 @@ E será retornado o seguinte arquivo JSON:
 
 ### Buscar os episódios de podcasts
 
-- **Endpoint:** `GET /api/episode/list?videoId={videoId}&podcastId{podcastId}=&title={titulo}&description{descrição}=&duration={tempo_seg}&release_date{data_ISO_8601}=&views{visualizações}=&likes{curtidas}=&tags{rótulo}=&language={idioma}`
+- **Endpoint:** `GET /api/episode/list?videoId={videoId}&podcastId{podcastId}=&title={titulo}&description{descrição}=&duration={tempo_seg}=&release_date{data_inicial,data_final}=&views{minimo,maximo}=&likes{minimo,maximo}=&tags{rotulo}=&language={idioma}`\
+O campo **release_date** deve estar no formato ISO_8601: `YYYY-MM-DDTHH:MM:SSZ`
 - **Token:** Envie o token de autorização no formato JSON dentro do campo de dados.
 ```json
 {"token": "user1234abcd"}
@@ -174,11 +178,86 @@ E será retornado o seguinte arquivo JSON:
 - **Descrição:** Retorna uma lista de episódios de podcasts desejados conforme os critérios da busca. Utilize apenas os campos necessários.
 - **Exemplo de resposta:** 
 O **endpoint** será:\
- `GET /api/episodes/list?name=spacetoday&author=sergio`\
+ `GET /api/episode/list?release_date=2023-01-20T00%3A00%3A00Z,2025-01-20T00%3A00%3A00Z&views=300000,500000`\
 E será retornado o seguinte arquivo JSON:
 ```json
-
+[
+	{
+		"videoId": "wCCDkCEFNPw",
+		"podcastId": "@venuspdc",
+		"title": "Quem não é hétero?",
+		"description": "Neste episódio, Criss, Yas, Raquel Real e Letícia Panar se envolvem em um jogo divertido para descobrir quem dos convidados NÃO É HÉTERO! Você consegue descobrir antes que todo mundo quem entre os participantes está tentando esconder o jogo?\nEntre risadas e revelações, aquelas minas debatem tentam identificar o impostor antes que ele se revele. Acompanhe para descobrir se as mulheres são realmente detetives mais experientes da internet!",
+		"duration": 1897,
+		"release_date": "2025-01-20T00:00:00Z",
+		"views": 348561,
+		"likes": 21000,
+		"tags": [
+			"hétero",
+			"jogo",
+			"impostor"
+		],
+		"language": "pt-BR"
+	}
+]
 ```
+
+### Inserindo um podcast
+
+- **Endpoint:** `POST `
+
+- **Token e dados:** Envie o token de autorização e as informações do podcast no formato JSON dentro do campo de dados.
+```json
+{
+  "token": "user1234abcd",
+  "podcast": {
+    "id": "@",
+    "name": "",
+    "author": [
+      ""
+    ],
+    "subscribers": 0,
+    "description": "",
+    "cover_url": "",
+    "categories": [
+      ""
+    ]    
+  }
+}
+```
+- **Descrição:** Adicina um podcast à lista de podcasts.
+- **Exemplo de resposta:** 
+O **endpoint** será:\
+
+### Inserindo um episódio de podcast
+
+- **Endpoint:** `POST `
+
+- **Token e dados:** Envie o token de autorização e as informações do espisódio do podcast no formato JSON dentro do campo de dados.
+```json
+{
+  "token": "user1234abcd",
+  "episodes": {
+    "videoId": "",
+    "podcastId": "",
+    "title": "",
+    "description": "",
+    "duration": 0,
+    "release_date": "YYYY-MM-DDTHH:MM:SSZ",
+    "views": 0,
+    "likes": 0,
+    "tags": [""],
+    "language": ""   
+  }
+}
+```
+- **Descrição:** Adicina um episódio de podcast à lista de episódios de podcasts.
+- **Exemplo de resposta:** 
+O **endpoint** será:\
+
+###
+
+###
+
 
 ## Tecnologias Utilizadas
 
