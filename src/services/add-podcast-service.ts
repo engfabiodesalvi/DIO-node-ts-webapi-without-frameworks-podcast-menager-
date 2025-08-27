@@ -1,11 +1,11 @@
 import { PodcastModel } from "../models/podcast-model";
 import { PodcastTransferModel } from "../models/podcast-transfer-model";
-import { repositoryPodcastAdd } from "../repositories/podcasts-repository-add";
+import { repositoryAddPodcast } from "../repositories/add-podcasts-repository";
 import { StatusCode } from "../utils/status-code";
 
-export const serviceAddPodcasts = async (
+export const serviceAddPodcast = async (
     queryString: string | undefined,
-    newPodcast: PodcastModel 
+    newPodcast: PodcastModel
 ): Promise<PodcastTransferModel> => {
     // define a interface de retorno - contrato
     let responseFormat: PodcastTransferModel = {
@@ -13,7 +13,7 @@ export const serviceAddPodcasts = async (
         body: [],
     };
 
-    const data = await repositoryPodcastAdd(queryString, newPodcast);
+    const data = await repositoryAddPodcast(queryString, newPodcast);
 
     //console.log(data);
 

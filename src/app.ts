@@ -3,7 +3,8 @@ import * as http from "http";
 import {
   getListPodcasts,
   getListEpisodes,
-  setPodcast,
+  addPodcast,
+  addEpisode,
 } from "./controllers/podscasts-controller";
 
 import { Routes } from "./routes/routes";
@@ -52,9 +53,12 @@ export const app = async (
             } else if (request.method === HttpMethod.GET &&  // GET-List episodes with or
                        baseUrl === Routes.EPISODE_LIST) {    // without queryString
               await getListEpisodes(request, response);
+            } else if (request.method === HttpMethod.POST && // POST-Insert podcast
+                       baseUrl === Routes.PODCAST_ADD) {     // without queryString                
+              await addPodcast(request, response, parsedBody.newPodcast);
             } else if (request.method === HttpMethod.POST && // POST-Insert episode
-                       baseUrl === Routes.PODCAST_ADD) {    // without queryString
-              await setPodcast(request, response, parsedBody.newPodcast);
+                       baseUrl === Routes.EPISODE_ADD) {     // without queryString                
+              await addEpisode(request, response, parsedBody.newEpisode);              
             } else {
               response.writeHead(StatusCode.NotFound, defaultContent);
               response.write(JSON.stringify({

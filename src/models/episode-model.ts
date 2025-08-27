@@ -7,6 +7,6 @@ export interface EpisodeModel {
     "release_date": string,
     "views": number,
     "likes": number,
-    "tags": string[],
+    "categories": string[],
     "language": string
 }
