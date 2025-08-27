@@ -14,7 +14,7 @@ export const repositoryPodcastAdd = async (
   const language = "utf-8";
 
   const rawData = fs.readFileSync(pathData, language);
-  let jsonFile = JSON.parse(rawData);
+  let newJsonFile = JSON.parse(rawData);
   
   const queryStringParameters = new URLSearchParams(queryString?.split("?")[1] || "");
 
@@ -29,35 +29,46 @@ export const repositoryPodcastAdd = async (
     if (newPodcast !== undefined) {
         const podcastAdd = newPodcast;
         //console.log(podcastAdd);
-        jsonFile = jsonFile['podcasts'] as PodcastModel[];
+        let jsonFile = newJsonFile['podcasts'] as PodcastModel[];
+        let itemMatch = false;
+
+        jsonFile.forEach((podcast: PodcastModel) => {
+            if (podcast.id === podcastAdd?.id) {
+                console.log("Id equal!");
+                itemMatch = itemMatch || true;
+            } else {
+                console.log("Id differ!");
+                itemMatch = itemMatch || false;
+            }
+        });
+        
         if (podcastAdd !== undefined) {
 
-            if (!jsonFile.filter((podcast: PodcastModel) => {
-                if (podcast.id === podcastAdd?.id) {
-                    console.log("Id equal!");
-                    return true;
-                } else {
-                    console.log("Id differ!");
-                    return false;
-                }
-
-            }).length) {
+            if (!itemMatch) {
               console.log("item não cadastrado");
+              jsonFile.push(podcastAdd)
+              newJsonFile['podcasts'] = jsonFile;
+              const jsonString = JSON.stringify(newJsonFile, null, 2); // Stringify with pretty-printing
+
+              fs.writeFile(pathData, jsonString, (err) => {
+                if (err) {
+                  console.error('Error writing file:', err);
+                  return;
+                }
+                console.log('JSON data saved to data.json');
+              });
 
               console.log("item adicionado");
+
             } else {
-              console.log("item cadastrado");
+              console.log("item cadastrado");              
             }
             
         }
 
     }
-    
 
-  } else {
-    jsonFile = jsonFile['podcasts'];
-    //console.log(JSON.stringify(jsonFile));    
   }
 
-  return jsonFile;
+  return [newPodcast as PodcastModel];
 };
