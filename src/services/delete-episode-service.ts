@@ -1,8 +1,6 @@
 import { EpisodeModel } from "../models/episode-model";
 import { EpisodeTransferModel } from "../models/episode-transfer-model";
-import { PodcastModel } from "../models/podcast-model";
-import { PodcastTransferModel } from "../models/podcast-transfer-model";
-import { repositoryAddPodcast } from "../repositories/add-podcasts-repository";
+import { repositoryDeleteEpisode } from "../repositories/delete-episode-repository";
 import { StatusCode } from "../utils/status-code";
 
 export const serviceDeleteEpisode = async (
@@ -15,7 +13,7 @@ export const serviceDeleteEpisode = async (
         body: [],
     };
 
-    const data = await repositoryDeletePodcast(queryString, deleteEpisode);
+    const data = await repositoryDeleteEpisode(queryString, deleteEpisode);
 
     //console.log(data);
 

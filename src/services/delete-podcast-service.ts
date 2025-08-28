@@ -1,6 +1,6 @@
 import { PodcastModel } from "../models/podcast-model";
 import { PodcastTransferModel } from "../models/podcast-transfer-model";
-import { repositoryAddPodcast } from "../repositories/add-podcasts-repository";
+import { repositoryDeletePodcast } from "../repositories/delete-podcast-repository";
 import { StatusCode } from "../utils/status-code";
 
 export const serviceDeletePodcast = async (

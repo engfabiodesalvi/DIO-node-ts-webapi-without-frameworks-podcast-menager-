@@ -1,8 +1,6 @@
 import { EpisodeModel } from "../models/episode-model";
 import { EpisodeTransferModel } from "../models/episode-transfer-model";
-import { PodcastModel } from "../models/podcast-model";
-import { PodcastTransferModel } from "../models/podcast-transfer-model";
-import { repositoryAddPodcast } from "../repositories/add-podcasts-repository";
+import { repositoryEditEpisode } from "../repositories/edit-episode-repository";
 import { StatusCode } from "../utils/status-code";
 
 export const serviceEditEpisode = async (

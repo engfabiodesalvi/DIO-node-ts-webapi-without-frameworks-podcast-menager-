@@ -1,7 +1,6 @@
 import fsPromises from "fs/promises";
 import path from "path";
 import { PodcastModel } from "../models/podcast-model";
-import { isPodcastModel } from "../utils/is-podcastmodel-type";
 import { isPartialPodcastModel } from "../utils/is-partial-podcastmodel-type";
 
 
@@ -41,7 +40,7 @@ export const repositoryEditPodcast = async (
           let itemMatch = false;
           jsonFile.forEach((podcast: PodcastModel) => {
               if (podcast.id === podcastSubs?.id) {
-                  console.log("Id equal! Upsert!");
+                  console.log("Id equal! Edit!");
                   // edit podcast properties
                   for (let key in podcastSubs) {
                     podcast[key as keyof object] = podcastSubs[key as keyof object]; 

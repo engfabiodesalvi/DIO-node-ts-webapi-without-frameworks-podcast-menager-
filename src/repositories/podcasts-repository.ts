@@ -2,7 +2,6 @@ import fs from "fs";
 import path from "path";
 
 import { PodcastModel } from "../models/podcast-model";
-import { json } from "stream/consumers";
 import { URLSearchParams } from "url";
 
 const pathData = path.join(__dirname, "../repositories/podcasts.json");

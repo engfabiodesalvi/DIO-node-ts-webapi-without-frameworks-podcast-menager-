@@ -1,7 +1,6 @@
 import fs from "fs";
 import path from "path";
 
-import { json } from "stream/consumers";
 import { URLSearchParams } from "url";
 import { EpisodeModel } from "../models/episode-model";
 
@@ -97,11 +96,11 @@ export const repositoryEpisode = async (
             }            
 
             // check tags is non-null value and check json registers
-            if (queryStringParameters.get("tags") || "" !== "") {
+            if (queryStringParameters.get("categories") || "" !== "") {
                 let findTags = true;
-                episode.tags.forEach(item => {
+                episode.categories.forEach(item => {
                 //console.log(item.toLowerCase().includes(queryStringParameters.get("author")?.toLowerCase() || ""));
-                if (!item.includes(queryStringParameters.get("tags") || ""))
+                if (!item.includes(queryStringParameters.get("categories") || ""))
                     findTags = false || findTags;
                 else
                     findTags = true;

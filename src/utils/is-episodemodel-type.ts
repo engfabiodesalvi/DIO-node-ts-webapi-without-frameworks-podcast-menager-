@@ -1,6 +1,6 @@
 
 import { EpisodeModel } from "../models/episode-model";
-import { PodcastModel } from "../models/podcast-model";
+import { isValidDate } from "./is-date-type";
 
 export const isEpisodeModel = async (
   newEpisode?: EpisodeModel | undefined
@@ -16,10 +16,11 @@ export const isEpisodeModel = async (
             typeof newEpisode.description === 'string' &&
             typeof newEpisode.duration === 'number' &&
             typeof newEpisode.release_date === 'string' &&
+                await isValidDate(newEpisode.release_date) &&
             typeof newEpisode.views === 'number' &&
             typeof newEpisode.likes === 'number' &&
             typeof newEpisode.categories === 'object' &&
-            newEpisode.categories.every((item) => typeof item === 'string') &&
+                newEpisode.categories.every((item) => typeof item === 'string') &&
             typeof newEpisode.language === 'string' &&
             countKeys === 10
         ) {

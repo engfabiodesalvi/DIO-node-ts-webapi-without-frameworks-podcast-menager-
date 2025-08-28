@@ -8,16 +8,25 @@
 O Podcast Manager é uma aplicação inspirada no estilo da Netflix, que permite centralizar os podcasts e seus episódios separados por critérios como: nome, categoria, descrição, visualizações, curtidas, data de criação, etiqueta ou idioma do vídeo.\
 Este projeto visa facilitar o acesso e a organização de episódios de podcasts em formato de vídeo, proporcionando uma experiência de navegação intuitiva e agradável para os usuários.
 
-## Funcionalidades
+## Funcionalidades implementadas por Fabio Toledo Bonemer De Salvi
 
 - **Verifica usuário:** A API verifica usuário e login do solicitante antes de realizar uma ação.
 - **Listar os padcasts:** Permite listar e organizar os podcasts através das informações de id do canal, nome do canal, autor ou autores, descrição do conteúdo apresentado no podcast, url da imagem de capa do podcast e categorias que descrevem a apresentação do conteúdo do podcast.
 - **Filtrar a lista de podcasts:** Os usuários podem realizar buscas utilizando os seguintes campos: id do canal, nome do canal, autor, descrição do conteúdo, url da imagem de capa ou categrias. Pode ser escolhido mais de um capo para realizar a busca. A API faz um uma comparação parcial do valor a ser buscado com o valor armazenado, ou seja, se o valor armazenado no banco de dados conter todos os caracteres, na mesma ordem, ele retornará este valor a usuário.
 - **Listar os episódios de podcasts:** Os episódios dos podcasts podem ser listados e organizados em categorias como saúde, bodybuilder, mentalidade e humor, permitindo aos usuários explorar facilmente os conteúdos disponíveis. Podem ser listados também utilizando as informações de título do podcast, descrição do episódio, duração do episódio, data de envio, número de views, número de likes, etiquetas e idioma de apresentação.
 - **Filtrar a lista de episódios de podcasts:** Os usuários podem realizar buscas utilizando os seguintes campos: id do vídeo, id do podcast, título do vídeo, descrição do vídeo, tempo de duração do vídeo, data de lançamento, número de visualizações, número de curtidas, etiquetas e idioma do vídeo.
+- **Cadastrar um novo podcast:** A API permite inserir um novo poscast. è necessári enviar todas as informações do podcast no formato JSON.
+- **Cadastrat um novo episódio de podcast:** A API permite inserir um novo episódio de podcast. É nesessári enviar tdas as informações do episódio no formato JSON.
+- **Atualizar os dados de um podcast:** É possível alterar os dados de  um determinado podcast. É necessári enviar um os novos dados no formato JSON juntamente com o campo **id** do podcast. 
+- **Atualizar os dados de um episódio de podcast:** É possível alterar os dados de um episódio de um determinado podcast. É nessário enviar s novos dados no formato *JSON juntamente com o campo **videoId** do episódio.
+- **Excluir os dados de um podcast:** É possível excluir os dados de um determinado podast. É necessário enviar o campo **id** do podcasto a ser excluído.
+- **Excluir os dados de um determinidado espisódio de podcast:** É possível excluir os dados de um determinado episódio de podcast. É necessário enviar  campo **videoId** do episódio a ser excluído.
 
 
 ## Implementação
+Utilize um dos sequintes softwares para enviar as requisições REST para a API:
+* **Postman**
+* **Insomnia**
 
 ### Listar os podcasts 
 
@@ -83,6 +92,7 @@ Este projeto visa facilitar o acesso e a organização de episódios de podcasts
     ...
   ]
   ```
+  Se a busca **não gerar resultados** a API retornará uma **mensagem sem dados**.
 
 ### Buscar os podcasts
 
@@ -121,6 +131,7 @@ E será retornado o seguinte arquivo JSON:
     }
   ]
   ```
+  Se a busca **não gerar resultados** a API retornará uma **mensagem sem dados**.
 
 ### Listar os episódios de podcasts
 
@@ -143,7 +154,7 @@ E será retornado o seguinte arquivo JSON:
       "release_date": "2020-07-05T00:00:00Z",
       "views": 7831283,
       "likes": 361000,
-      "tags": [
+      "categories": [
         "vitor metaforando",
         "entrevista"
       ],
@@ -158,7 +169,7 @@ E será retornado o seguinte arquivo JSON:
       "release_date": "2020-10-02T00:00:00Z",
       "views": 7831283,
       "likes": 361000,
-      "tags": [
+      "categories": [
         "lucas inutilismo",
         "entrevista"
       ],
@@ -192,7 +203,7 @@ E será retornado o seguinte arquivo JSON:
       "release_date": "2025-01-20T00:00:00Z",
       "views": 348561,
       "likes": 21000,
-      "tags": [
+      "categories": [
         "hétero",
         "jogo",
         "impostor"
@@ -201,6 +212,7 @@ E será retornado o seguinte arquivo JSON:
     }
   ]
   ```
+  Se a busca **não gerar resultados** a API retornará uma **mensagem sem dados**.
 
 ### Inserindo um podcast
 
@@ -210,7 +222,7 @@ E será retornado o seguinte arquivo JSON:
   ```json
   {
     "token": "user1234abcd",
-    "podcast": {
+    "newPodcast": {
       "id": "",
       "name": "",
       "author": [
@@ -283,7 +295,7 @@ E será retornado o seguinte arquivo JSON:
       }
     ]
     ```
-    Se os dados do podcast **não forem cadastrados** a API retornará uma **mensagem sem dados**:
+    Se os dados do podcast **não forem cadastrados** a API retornará uma **mensagem sem dados**.
 
 ### Inserindo um episódio de podcast
 
@@ -293,7 +305,7 @@ E será retornado o seguinte arquivo JSON:
   ```json
   {
     "token": "user1234abcd",
-    "episodes": {
+    "newEpisode": {
       "videoId": "",
       "podcastId": "",
       "title": "",
@@ -302,7 +314,7 @@ E será retornado o seguinte arquivo JSON:
       "release_date": "YYYY-MM-DDTHH:MM:SSZ",
       "views": 0,
       "likes": 0,
-      "tags": [""],
+      "categories": [""],
       "language": ""   
     }
   }
@@ -333,8 +345,7 @@ E será retornado o seguinte arquivo JSON:
     } 
     }
     ```
-  - **Resposta**
-
+  - **Resposta**\
     Se o episodo enviado **for adicionado** à lista de episódios, ou se **já tiver sido cadastrado**, a API **retornará os dados deste podcast** como um objeto **JSON** dentro de uma matriz:
     ```json
     [
@@ -355,73 +366,420 @@ E será retornado o seguinte arquivo JSON:
       }
     ]
     ```
-    Se os dados do episódio **não forem cadastrados** a API retornará uma **mensagem sem dados**:
+    Se os dados do episódio **não forem cadastrados** a API retornará uma **mensagem sem dados**.
 
 ### Editando/inserindo um podcast
 
 - **Endpoint:** `PUT /api/podcast/upsert`
-- **Token:** Envie o token de autorização no formato JSON dentro do campo de dados.
+- **Token:** Envie o token de autorização e as informações do podcast no formato JSON dentro do campo de dados.
   ```json
-  {"token": "user1234abcd"}
+  {
+    "token": "user1234abcd",
+    "upsertPodcast": {
+      "id": "",
+      "name": "",
+      "author": [
+        ""
+      ],
+      "subscribers": 0,
+      "description": "",
+      "cover_url": "",
+      "categories": [
+        ""
+      ]    
+    }
+  }
   ```
 - **Descrição:** Edita todos os dados de um podcast. O podcast será inserido caso não esteja cadastrado.
 
 - **Exemplo envio e resposta:** 
+  - **Envio**\
+    O **endpoint** será:\
+    `PUT /api/podcast/upsert`\
+    O campo de dados deve conter o **token** e os **dados do podcast** no formato **JSON**:
+    ```json
+    {
+      "token": "user1234abcd",
+      "upsertPodcast": {
+          "id": "@PrincipedaBurguesia",
+          "name": "Príncipe da Burguesia",
+          "author": [
+          "Lord Vinheteiro - Fabrício Vinheteiro"
+          ],
+          "subscribers": 168000,
+          "description": "O Príncipe da Burguesia é o canal de notícias mais sincero do Brasil focado para o público da Classe Média Alta Brasileira. Este canal é livre de apedeutas! Inscreva-se!",
+          "cover_url": "https://yt3.ggpht.com/RXKPims6v21WeIuEdln2ndrgzx8RbWmqLkB_GvH-weRyK5YhCl5khbdwwnjwuAiGQ3NRpXmmyg=s176-c-k-c0x00ffffff-no-rj-mo",
+          "categories": [
+          "humor",
+          "classe média alta",
+          "música eudita",
+          "música moderna",
+          "análise crítica",
+          "polarização",
+          "experiências pessoais",
+          "eventos inusitados"
+          ]
+      }
+    }    
+    ```
+  - **Resposta**\
+    O podcast **será iserido** na lista de podcasts caso **não esteja cadastrado**. Caso **já tenha sido cadastrado**, a API atualizará os dados e **retornará os dados deste podcast** como um objeto **JSON** dentro de uma matriz:
+    ```json
+    [
+      {
+        "id": "@PrincipedaBurguesia",
+        "name": "Príncipe da Burguesia",
+        "author": [
+          "Lord Vinheteiro - Fabrício Vinheteiro"
+        ],
+        "subscribers": 168000,
+        "description": "O Príncipe da Burguesia é o canal de notícias mais sincero do Brasil focado para o público da Classe Média Alta Brasileira. Este canal é livre de apedeutas! Inscreva-se!",
+        "cover_url": "https://yt3.ggpht.com/RXKPims6v21WeIuEdln2ndrgzx8RbWmqLkB_GvH-weRyK5YhCl5khbdwwnjwuAiGQ3NRpXmmyg=s176-c-k-c0x00ffffff-no-rj-mo",
+        "categories": [
+          "humor",
+          "classe média alta",
+          "música eudita",
+          "música moderna",
+          "análise crítica",
+          "polarização",
+          "experiências pessoais",
+          "eventos inusitados"
+        ]
+      }
+    ]    
+    ```
+    Se os dados do podcast **não forem cadastrados** a API retornará uma **mensagem sem dados**.
 
 ### Editando/inserindo um episódio de podcast
 
 - **Endpoint:** `PUT /api/episodio/upsert`
-- **Token:** Envie o token de autorização no formato JSON dentro do campo de dados.
+- **Token:** Envie o token de autorização e as informações do episódio so podcast no formato JSON dentro do campo de dados.
   ```json
-  {"token": "user1234abcd"}
+  {
+    "token": "user1234abcd",
+    "upsertEpisode": {
+      "videoId": "",
+      "podcastId": "",
+      "title": "",
+      "description": "",
+      "duration": 0,
+      "release_date": "YYYY-MM-DDTHH:MM:SSZ",
+      "views": 0,
+      "likes": 0,
+      "categories": [""],
+      "language": ""   
+    }
+  }
   ```
 - **Descrição:** Edita todos os dados de um episódio de podcast. O episódio será inserido caso não esteja cadastrado.
 
 - **Exemplo envio e resposta:** 
+  - **Envio**\
+    O **endpoint** será:\
+    `PUT /api/episode/upsert`\
+    O campo de dados deve conter o **token** e os **dados do episódio** no formato **JSON**:
+    ```json
+    {
+      "token": "user1234abcd",
+      "upsertEpisode": {
+        "videoId": "4_LBEamyok0",
+        "podcastId": "@ancap_su",
+        "title": "VICE-PRESIDENTE da ONU pede OFICIALMENTE MUDANÇA de SEDE da COP30: \"DESRESPEITO ao MULTILATERALISMO\"",
+        "description": "VICE-PRESIDENTE da ONU pede OFICIALMENTE MUDANÇA de SEDE da COP30: \"DESRESPEITO ao MULTILATERALISMO\"",
+        "duration": 882,
+        "release_date": "2025-08-25T00:00:00Z",
+        "views": 116943,
+        "likes": 21000,
+        "categories": [
+            "dipomacia internaciona & ONU",
+            "multilateralismo & cooperação global",
+            "segurança climática & COP30",
+            "política internacional & geopolítica",
+            "críticas institucinais"		],
+        "language": "pt-BR"
+      }
+    }    
+    ```
+  - **Resposta**\
+    O episódio de podcast **será iserido** na lista de episódios caso **não esteja cadastrado**. Caso **já tenha sido cadastrado**, a API atualizará os dados e **retornará os dados deste espisódio** como um objeto **JSON** dentro de uma matriz:
+    ```json
+    [
+      {
+        "videoId": "4_LBEamyok0",
+        "podcastId": "@ancap_su",
+        "title": "VICE-PRESIDENTE da ONU pede OFICIALMENTE MUDANÇA de SEDE da COP30: \"DESRESPEITO ao MULTILATERALISMO\"",
+        "description": "VICE-PRESIDENTE da ONU pede OFICIALMENTE MUDANÇA de SEDE da COP30: \"DESRESPEITO ao MULTILATERALISMO\"",
+        "duration": 882,
+        "release_date": "2025-08-25T00:00:00Z",
+        "views": 116943,
+        "likes": 21000,
+        "categories": [
+          "dipomacia internaciona & ONU",
+          "multilateralismo & cooperação global",
+          "segurança climática & COP30",
+          "política internacional & geopolítica",
+          "críticas institucinais"
+        ],
+        "language": "pt-BR"
+      }
+    ]      
+    ```
+    Se os dados do episódio de podcast **não forem cadastrados** a API retornará uma **mensagem sem dados**.
+
 
 ### Editando parcialmente um podcast
 
 - **Endpoint:** `PATCH /api/podcast/edit`
-- **Token:** Envie o token de autorização no formato JSON dentro do campo de dados.
+- **Token:** Envie o token de autorização e as informações do podcast a serem alteradas no formato JSON dentro do campo de dados. O campo **id** é obrigatório e deve conter o id do podcast a ser editado, os outros campos são inseridos conforme a necessidade.
   ```json
-  {"token": "user1234abcd"}
-  ```
-- **Descrição:** Edita parcialemnte os dados de um podcast.
-
-- **Exemplo envio e resposta:** 
-
-### Editando parcialmente um episódio de posdcast
-
-- **Endpoint:** `PATCH /api/episodio/edit`
-- **Token:** Envie o token de autorização no formato JSON dentro do campo de dados.
-  ```json
-  {"token": "user1234abcd"}
+  {
+    "token": "user1234abcd",
+    "editPodcast": {
+      "id": "",
+      "name": "",
+      "author": [
+        ""
+      ],
+      "subscribers": 0,
+      "description": "",
+      "cover_url": "",
+      "categories": [
+        ""
+      ]    
+    }
+  }
   ```
 - **Descrição:** Edita parcialmente os dados de um podcast.
 
 - **Exemplo envio e resposta:** 
+  - **Envio**\
+    O **endpoint** será:\
+    `PATCH /api/podcast/edit`\
+    O campo de dados deve conter o **token** e os **dados do podcast** no formato **JSON**:
+    ```json
+    {
+      "token": "user1234abcd",
+      "editPodcast": {
+          "id": "@PrincipedaBurguesiatyu",
+          "categories": [
+          "humor",
+          "classe média alta",
+          "música eudita",
+          "música moderna",
+          "análise crítica",
+          "polarização",
+          "experiências pessoais",
+          "eventos inusitados"
+          ]
+      }
+    }
+    ```
+  - **Resposta**\
+    A API atualizará os dados e **retornará os dados do podcast** como um objeto **JSON** dentro de uma matriz:
+    ```json
+    [
+      {
+        "id": "@PrincipedaBurguesia",
+        "name": "Príncipe da Burguesia",
+        "author": [
+          "Lord Vinheteiro - Fabrício Vinheteiro"
+        ],
+        "subscribers": 168000,
+        "description": "O Príncipe da Burguesia é o canal de notícias mais sincero do Brasil focado para o público da Classe Média Alta Brasileira. Este canal é livre de apedeutas! Inscreva-se!",
+        "cover_url": "https://yt3.ggpht.com/RXKPims6v21WeIuEdln2ndrgzx8RbWmqLkB_GvH-weRyK5YhCl5khbdwwnjwuAiGQ3NRpXmmyg=s176-c-k-c0x00ffffff-no-rj-mo",
+        "categories": [
+          "humor",
+          "classe média alta",
+          "música eudita",
+          "música moderna",
+          "análise crítica",
+          "polarização",
+          "experiências pessoais",
+          "eventos inusitados"
+        ]
+      }
+    ]
+    ```
+    Caso o podcast **não seja** atualizado a API retornará uma **mensagem sem dados**.
+
+### Editando parcialmente um episódio de posdcast
+
+- **Endpoint:** `PATCH /api/episodio/edit`
+- **Token:** Envie o token de autorização e as infomações do episódio do podcast a serem alteras no formato JSON dentro do campo de dados. O campo **videoId** é obrigatório e deve conter o videoId do episódio de podcast a ser editado, os outros campos são inseridos conforme a necessidade.
+  ```json
+  {
+    "token": "user1234abcd",
+    "editEpisode": {
+      "videoId": "",
+      "podcastId": "",
+      "title": "",
+      "description": "",
+      "duration": 0,
+      "release_date": "YYYY-MM-DDTHH:MM:SSZ",
+      "views": 0,
+      "likes": 0,
+      "categories": [""],
+      "language": ""   
+    }
+  }
+  ```
+- **Descrição:** Edita parcialmente os dados de um podcast.
+
+- **Exemplo envio e resposta:** 
+  - **Envio**\
+    O **endpoint** será:\
+    `PATCH /api/episode/edit`\
+    O campo de dados deve conter o **token** e os **dados do episódio** do podcast no formato **JSON**:
+    ```json
+    {
+      "token": "user1234abcd",
+      "editEpisode": {
+        "videoId": "4_LBEamyok0",
+        "title": "VICE-PRESIDENTE da ONU pede OFICIALMENTE MUDANÇA de SEDE da COP30: \"DESRESPEITO ao MULTILATERALISMO\"",
+        "release_date": "2025-08-25T00:00:00Z",
+        "categories": [
+            "dipomacia internaciona & ONU",
+            "multilateralismo & cooperação global",
+            "segurança climática & COP30",
+            "política internacional & geopolítica",
+            "críticas institucinais"
+        ]
+      }
+    }
+    ```
+  - **Resposta**\
+    A API atualizará os dados e **retornará os dados do podcast** como um objeto **JSON** dentro de uma matriz:
+    ```json
+    [
+      {
+        "videoId": "4_LBEamyok0",
+        "podcastId": "@ancap_su",
+        "title": "VICE-PRESIDENTE da ONU pede OFICIALMENTE MUDANÇA de SEDE da COP30: \"DESRESPEITO ao MULTILATERALISMO\"",
+        "description": "VICE-PRESIDENTE da ONU pede OFICIALMENTE MUDANÇA de SEDE da COP30: \"DESRESPEITO ao MULTILATERALISMO\"",
+        "duration": 882,
+        "release_date": "2025-08-25T00:00:00Z",
+        "views": 116943,
+        "likes": 21000,
+        "categories": [
+          "dipomacia internaciona & ONU",
+          "multilateralismo & cooperação global",
+          "segurança climática & COP30",
+          "política internacional & geopolítica",
+          "críticas institucinais"
+        ],
+        "language": "pt-BR"
+      }
+    ]
+    ```
+    Caso o episódio de podcast **não seja** atualizado a API retornará uma **mensagem sem dados**.
 
 ### Apagando um podcast
 
 - **Endpoint:** `DELETE /api/podcast/delete`
-- **Token:** Envie o token de autorização no formato JSON dentro do campo de dados.
+- **Token:** Envie o token de autorização e o **id** do podcast a ser exclído no formato JSON dentro do campo de dados.
   ```json
-  {"token": "user1234abcd"}
+  {
+    "token": "user1234abcd",
+    "deletePodcast": {
+      "id": ""  
+    }
+  }
   ```
-- **Descrição:** Deleta todos os dados de um podcast.
+- **Descrição:** Deleta todos os dados de um podcast que contenham o **id** do episódio a ser excluído..
 
 - **Exemplo envio e resposta:** 
+  - **Envio**\
+    O **endpoint** será:\
+    `DELETE /api/podcast/delete`\
+    O campo de dados deve conter o **token** e os **id** do podcast a ser excluído no formato **JSON**:
+    ```json
+    {
+      "token": "user1234abcd",
+      "deletePodcast": {
+          "id": "@PrincipedaBurguesiatyu"
+      }
+    }
+    ```
+  - **Resposta**\
+    A API **exluirá os dados** e **retornará os dados do podcast** como um objeto **JSON** dentro de uma matriz:
+    ```json
+    [
+      {
+        "id": "@PrincipedaBurguesia",
+        "name": "Príncipe da Burguesia",
+        "author": [
+          "Lord Vinheteiro - Fabrício Vinheteiro"
+        ],
+        "subscribers": 168000,
+        "description": "O Príncipe da Burguesia é o canal de notícias mais sincero do Brasil focado para o público da Classe Média Alta Brasileira. Este canal é livre de apedeutas! Inscreva-se!",
+        "cover_url": "https://yt3.ggpht.com/RXKPims6v21WeIuEdln2ndrgzx8RbWmqLkB_GvH-weRyK5YhCl5khbdwwnjwuAiGQ3NRpXmmyg=s176-c-k-c0x00ffffff-no-rj-mo",
+        "categories": [
+          "humor",
+          "classe média alta",
+          "música eudita",
+          "música moderna",
+          "análise crítica",
+          "polarização",
+          "experiências pessoais",
+          "eventos inusitados"
+        ]
+      }
+    ]
+    ```
+    Caso o podcast **já tenha sido excluído**, ou **se o podcast não for encontrado**, a API retornará uma **mensagem sem dados**.
 
 ### Apagando um episódio de podcast
 
 - **Endpoint:** `DELETE /api/episode/delete`
-- **Token:** Envie o token de autorização no formato JSON dentro do campo de dados.
+- **Token:** Envie o token de autorização e o **videoId** do episódio do vídeo a ser excluído no formato JSON dentro do campo de dados.
   ```json
-  {"token": "user1234abcd"}
+  {
+    "token": "user1234abcd",
+    "deleteEpisode": {
+      "videoId": "" 
+    }
+  }
   ```
 - **Descrição:** Deleta todos os dados de um episódio de podcast.
 
 - **Exemplo envio e resposta:** 
+  - **Envio**\
+    O **endpoint** será:\
+    `DELETE /api/episode/delete`\
+    O campo de dados deve conter o **token** e os **videoId** do podcast a ser excluído no formato **JSON**:
+    ```json
+    {	
+      "token": "user1234abcd",
+      "deleteEpisode": {
+          "videoId": "4_LBEamyok0"
+      }
+    }
+    ```
+  - **Resposta**\
+    A API **exluirá os dados** com o mesmo **videoId** e **retornará os dados do episódio do podcast** como um objeto **JSON** dentro de uma matriz:
+    ```json
+    [
+      {
+        "videoId": "4_LBEamyok0",
+        "podcastId": "@ancap_su",
+        "title": "VICE-PRESIDENTE da ONU pede OFICIALMENTE MUDANÇA de SEDE da COP30: \"DESRESPEITO ao MULTILATERALISMO\"",
+        "description": "VICE-PRESIDENTE da ONU pede OFICIALMENTE MUDANÇA de SEDE da COP30: \"DESRESPEITO ao MULTILATERALISMO\"",
+        "duration": 882,
+        "release_date": "2025-08-25T00:00:00Z",
+        "views": 116943,
+        "likes": 21000,
+        "categories": [
+          "dipomacia internaciona & ONU",
+          "multilateralismo & cooperação global",
+          "segurança climática & COP30",
+          "política internacional & geopolítica",
+          "críticas institucinais"
+        ],
+        "language": "pt-BR"
+      }
+    ]
+    ```
+    Caso o episódio de podcast **já tenha sido excluído**, ou **se o episódio de podcast não for encontrado**, a API retornará uma **mensagem sem dados**.
 
 ## Tecnologias Utilizadas
 

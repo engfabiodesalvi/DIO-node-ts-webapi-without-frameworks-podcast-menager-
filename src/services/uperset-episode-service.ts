@@ -1,6 +1,5 @@
 import { EpisodeModel } from "../models/episode-model";
 import { EpisodeTransferModel } from "../models/episode-transfer-model";
-import { repositoryAddEpisode } from "../repositories/add-episode-repository";
 import { repositoryUpsertEpisode } from "../repositories/upsert-episode-repository";
 import { StatusCode } from "../utils/status-code";
 

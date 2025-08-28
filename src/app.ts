@@ -31,6 +31,7 @@ export const app = async (
   let authorization = false;
   let body = '';
   count++;
+
   console.log(`${count} - ${JSON.stringify(request.headers)}`);
 
   //if (request.method === HttpMethod.GET) {
@@ -81,10 +82,10 @@ export const app = async (
             } else if (request.method === HttpMethod.PATCH &&     // PATCH-Edit podcast
                        baseUrl === Routes.EPISODE_EDIT) {     // without queryString                
               await editEpisode(request, response, parsedBody.editEpisode);              
-            } else if (request.method === HttpMethod.DELETE &&     // DELETE-Edit or insert podcast
+            } else if (request.method === HttpMethod.DELETE &&     // DELETE-Delete podcast
                        baseUrl === Routes.PODCAST_DELETE) {     // without queryString                
               await deletePodcast(request, response, parsedBody.deletePodcast);              
-            } else if (request.method === HttpMethod.DELETE &&     // DELETE-Edit or insert podcast
+            } else if (request.method === HttpMethod.DELETE &&     // DELETE-Delete podcast
                        baseUrl === Routes.EPISODE_DELETE) {     // without queryString                
               await deleteEpisode(request, response, parsedBody.deleteEpisode);              
             } else {
@@ -103,10 +104,10 @@ export const app = async (
           }          
 
       } catch (e) {
-          console.error('Error parsing JSON:', e);
-              response.writeHead(StatusCode.Forbidden, defaultContent);
+          console.error('Unespected error:', e);
+              response.writeHead(StatusCode.InternalServerError, defaultContent);
               response.write(JSON.stringify({
-                message: "Unauthorized access! Error parsing JSON!"
+                message: `Unespected error: ${e}`
               }));             
               response.end();             
       }

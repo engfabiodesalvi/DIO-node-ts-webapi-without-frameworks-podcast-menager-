@@ -129,26 +129,6 @@
       ]
     },
     {
-      "id": "@PrincipedaBurguesia",
-      "name": "Príncipe da Burguesia",
-      "author": [
-        "Lord Vinheteiro - Fabrício Vinheteiro"
-      ],
-      "subscribers": 168000,
-      "description": "O Príncipe da Burguesia é o canal de notícias mais sincero do Brasil focado para o público da Classe Média Alta Brasileira. Este canal é livre de apedeutas! Inscreva-se!",
-      "cover_url": "https://yt3.ggpht.com/RXKPims6v21WeIuEdln2ndrgzx8RbWmqLkB_GvH-weRyK5YhCl5khbdwwnjwuAiGQ3NRpXmmyg=s176-c-k-c0x00ffffff-no-rj-mo",
-      "categories": [
-        "humor",
-        "classe média alta",
-        "música eudita",
-        "música moderna",
-        "análise crítica",
-        "polarização",
-        "experiências pessoais",
-        "eventos inusitados"
-      ]
-    },
-    {
       "id": "@PrincipedaBurguesia7",
       "name": "Príncipe da Burguesia",
       "author": [
@@ -309,7 +289,7 @@
       ]
     },
     {
-      "id": "@PrincipedaBurguesiatyu",
+      "id": "@PrincipedaBurguesia",
       "name": "Príncipe da Burguesia",
       "author": [
         "Lord Vinheteiro - Fabrício Vinheteiro"
@@ -327,28 +307,6 @@
         "experiências pessoais",
         "eventos inusitados"
       ]
-    },
-    {
-      "id": "@PrincipedaBurguesiatyui",
-      "name": "Príncipe da Burguesia",
-      "author": [
-        "Lord Vinheteiro - Fabrício Vinheteiro"
-      ],
-      "subscribers": 168000,
-      "description": "O Príncipe da Burguesia é o canal de notícias mais sincero do Brasil focado para o público da Classe Média Alta Brasileira. Este canal é livre de apedeutas! Inscreva-se!",
-      "cover_url": "https://yt3.ggpht.com/RXKPims6v21WeIuEdln2ndrgzx8RbWmqLkB_GvH-weRyK5YhCl5khbdwwnjwuAiGQ3NRpXmmyg=s176-c-k-c0x00ffffff-no-rj-mo",
-      "categories": [
-        "humor",
-        "classe média alta",
-        "música eudita",
-        "música moderna",
-        "análise crítica",
-        "polarização",
-        "experiências pessoais",
-        "eventos inusitados",
-        "category edited"
-      ],
-      "extra": "778"
     }
   ],
   "episodes": [
@@ -612,7 +570,7 @@
       "title": "VICE-PRESIDENTE da ONU pede OFICIALMENTE MUDANÇA de SEDE da COP30: \"DESRESPEITO ao MULTILATERALISMO\"",
       "description": "VICE-PRESIDENTE da ONU pede OFICIALMENTE MUDANÇA de SEDE da COP30: \"DESRESPEITO ao MULTILATERALISMO\"",
       "duration": 882,
-      "release_date": "YYYY-MM-DDTHH:MM:SSZ",
+      "release_date": "2025-08-25T00:00:00Z",
       "views": 116943,
       "likes": 21000,
       "categories": [
