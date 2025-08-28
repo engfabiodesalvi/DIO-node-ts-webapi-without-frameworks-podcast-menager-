@@ -4,6 +4,7 @@ export const isPodcastModel = async (
   newPodcast?: PodcastModel | undefined
 ): Promise<boolean> => {
     let isTypeOfPodcastModel = false;
+    const countKeys = Object.keys(newPodcast as PodcastModel).length
 
     if (!Array.isArray(newPodcast) &&
             newPodcast !== undefined &&
@@ -15,27 +16,29 @@ export const isPodcastModel = async (
             typeof newPodcast.description === 'string' &&
             typeof newPodcast.cover_url === 'string' &&
             typeof newPodcast.categories === 'object' &&
-            newPodcast.categories.every((item) => typeof item === 'string') 
-        ) {
+            newPodcast.categories.every((item) => typeof item === 'string') &&
+            countKeys === 7
+        ) {                        
+   
         isTypeOfPodcastModel = true;
         console.log("Is Typeof PodcastModel");
     } else {
         console.log("Isn't Typeof PodcastModel");
     }
 
-    console.log(typeof newPodcast?.id);
-    console.log(typeof newPodcast?.name);
-    console.log(typeof newPodcast?.subscribers);
-    console.log(typeof newPodcast?.author);
-    newPodcast?.author.forEach((item)=>{
-        console.log(`   ${typeof item}`);
-    })
-    console.log(typeof newPodcast?.description);
-    console.log(typeof newPodcast?.cover_url);
-    console.log(typeof newPodcast?.categories);
-    newPodcast?.categories.forEach((item)=>{
-        console.log(`   ${typeof item}`);
-    })    
+    // console.log(typeof newPodcast?.id);
+    // console.log(typeof newPodcast?.name);
+    // console.log(typeof newPodcast?.subscribers);
+    // console.log(typeof newPodcast?.author);
+    // newPodcast?.author.forEach((item)=>{
+    //     console.log(`   ${typeof item}`);
+    // })
+    // console.log(typeof newPodcast?.description);
+    // console.log(typeof newPodcast?.cover_url);
+    // console.log(typeof newPodcast?.categories);
+    // newPodcast?.categories.forEach((item)=>{
+    //     console.log(`   ${typeof item}`);
+    // })    
 
     return isTypeOfPodcastModel;
 };

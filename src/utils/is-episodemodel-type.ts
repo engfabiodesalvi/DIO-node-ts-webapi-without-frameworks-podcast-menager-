@@ -6,6 +6,7 @@ export const isEpisodeModel = async (
   newEpisode?: EpisodeModel | undefined
 ): Promise<boolean> => {
     let isTypeOfEpisodeModel = false;
+    const countKeys = Object.keys(newEpisode as EpisodeModel).length
 
     if (!Array.isArray(newEpisode) &&
             newEpisode !== undefined &&
@@ -19,7 +20,8 @@ export const isEpisodeModel = async (
             typeof newEpisode.likes === 'number' &&
             typeof newEpisode.categories === 'object' &&
             newEpisode.categories.every((item) => typeof item === 'string') &&
-            typeof newEpisode.language === 'string'
+            typeof newEpisode.language === 'string' &&
+            countKeys === 10
         ) {
         isTypeOfEpisodeModel = true;
         console.log("Is Typeof EpisodeModel");
@@ -27,19 +29,19 @@ export const isEpisodeModel = async (
         console.log("Isn't Typeof EpisodeModel");
     }
 
-    console.log(typeof newEpisode?.videoId);
-    console.log(typeof newEpisode?.podcastId);
-    console.log(typeof newEpisode?.title);
-    console.log(typeof newEpisode?.description);
-    console.log(typeof newEpisode?.duration);
-    console.log(typeof newEpisode?.release_date);
-    console.log(typeof newEpisode?.views);
-    console.log(typeof newEpisode?.likes);
-    console.log(typeof newEpisode?.categories);
-    newEpisode?.categories.forEach((item)=>{
-        console.log(`   ${typeof item}`);
-    })    
-    console.log(typeof newEpisode?.language);
+    // console.log(typeof newEpisode?.videoId);
+    // console.log(typeof newEpisode?.podcastId);
+    // console.log(typeof newEpisode?.title);
+    // console.log(typeof newEpisode?.description);
+    // console.log(typeof newEpisode?.duration);
+    // console.log(typeof newEpisode?.release_date);
+    // console.log(typeof newEpisode?.views);
+    // console.log(typeof newEpisode?.likes);
+    // console.log(typeof newEpisode?.categories);
+    // newEpisode?.categories.forEach((item)=>{
+    //     console.log(`   ${typeof item}`);
+    // })    
+    // console.log(typeof newEpisode?.language);
 
     return isTypeOfEpisodeModel;
 };

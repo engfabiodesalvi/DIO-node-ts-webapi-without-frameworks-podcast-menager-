@@ -359,16 +359,69 @@ E será retornado o seguinte arquivo JSON:
 
 ### Editando/inserindo um podcast
 
+- **Endpoint:** `PUT /api/podcast/upsert`
+- **Token:** Envie o token de autorização no formato JSON dentro do campo de dados.
+  ```json
+  {"token": "user1234abcd"}
+  ```
+- **Descrição:** Edita todos os dados de um podcast. O podcast será inserido caso não esteja cadastrado.
+
+- **Exemplo envio e resposta:** 
+
 ### Editando/inserindo um episódio de podcast
+
+- **Endpoint:** `PUT /api/episodio/upsert`
+- **Token:** Envie o token de autorização no formato JSON dentro do campo de dados.
+  ```json
+  {"token": "user1234abcd"}
+  ```
+- **Descrição:** Edita todos os dados de um episódio de podcast. O episódio será inserido caso não esteja cadastrado.
+
+- **Exemplo envio e resposta:** 
 
 ### Editando parcialmente um podcast
 
+- **Endpoint:** `PATCH /api/podcast/edit`
+- **Token:** Envie o token de autorização no formato JSON dentro do campo de dados.
+  ```json
+  {"token": "user1234abcd"}
+  ```
+- **Descrição:** Edita parcialemnte os dados de um podcast.
+
+- **Exemplo envio e resposta:** 
+
 ### Editando parcialmente um episódio de posdcast
+
+- **Endpoint:** `PATCH /api/episodio/edit`
+- **Token:** Envie o token de autorização no formato JSON dentro do campo de dados.
+  ```json
+  {"token": "user1234abcd"}
+  ```
+- **Descrição:** Edita parcialmente os dados de um podcast.
+
+- **Exemplo envio e resposta:** 
 
 ### Apagando um podcast
 
+- **Endpoint:** `DELETE /api/podcast/delete`
+- **Token:** Envie o token de autorização no formato JSON dentro do campo de dados.
+  ```json
+  {"token": "user1234abcd"}
+  ```
+- **Descrição:** Deleta todos os dados de um podcast.
+
+- **Exemplo envio e resposta:** 
+
 ### Apagando um episódio de podcast
 
+- **Endpoint:** `DELETE /api/episode/delete`
+- **Token:** Envie o token de autorização no formato JSON dentro do campo de dados.
+  ```json
+  {"token": "user1234abcd"}
+  ```
+- **Descrição:** Deleta todos os dados de um episódio de podcast.
+
+- **Exemplo envio e resposta:** 
 
 ## Tecnologias Utilizadas
 
