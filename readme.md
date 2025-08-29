@@ -19,8 +19,8 @@ Este projeto visa facilitar o acesso e a organização de episódios de podcasts
 - **Cadastrat um novo episódio de podcast:** A API permite inserir um novo episódio de podcast. É nesessári enviar tdas as informações do episódio no formato JSON.
 - **Atualizar os dados de um podcast:** É possível alterar os dados de  um determinado podcast. É necessári enviar um os novos dados no formato JSON juntamente com o campo **id** do podcast. 
 - **Atualizar os dados de um episódio de podcast:** É possível alterar os dados de um episódio de um determinado podcast. É nessário enviar s novos dados no formato *JSON juntamente com o campo **videoId** do episódio.
-- **Excluir os dados de um podcast:** É possível excluir os dados de um determinado podast. É necessário enviar o campo **id** do podcasto a ser excluído.
-- **Excluir os dados de um determinidado espisódio de podcast:** É possível excluir os dados de um determinado episódio de podcast. É necessário enviar  campo **videoId** do episódio a ser excluído.
+- **Excluir os dados de um podcast:** É possível excluir os dados de um determinado podast. É necessário enviar o campo **id** do podcast a ser excluído.
+- **Excluir os dados de um determinidado episódio de podcast:** É possível excluir os dados de um determinado episódio de podcast. É necessário enviar  campo **videoId** do episódio a ser excluído.
 
 
 ## Implementação
