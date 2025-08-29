@@ -10,7 +10,7 @@ Este projeto visa facilitar o acesso e a organização de episódios de podcasts
 
 ## Funcionalidades implementadas por Fabio Toledo Bonemer De Salvi
 
-- **Verifica usuário:** A API verifica usuário e login do solicitante antes de realizar uma ação.
+- **Verifica token do usuário:** A API verifica o token do usuário antes de realizar uma ação.
 - **Listar os padcasts:** Permite listar e organizar os podcasts através das informações de id do canal, nome do canal, autor ou autores, descrição do conteúdo apresentado no podcast, url da imagem de capa do podcast e categorias que descrevem a apresentação do conteúdo do podcast.
 - **Filtrar a lista de podcasts:** Os usuários podem realizar buscas utilizando os seguintes campos: id do canal, nome do canal, autor, descrição do conteúdo, url da imagem de capa ou categrias. Pode ser escolhido mais de um capo para realizar a busca. A API faz um uma comparação parcial do valor a ser buscado com o valor armazenado, ou seja, se o valor armazenado no banco de dados conter todos os caracteres, na mesma ordem, ele retornará este valor a usuário.
 - **Listar os episódios de podcasts:** Os episódios dos podcasts podem ser listados e organizados em categorias como saúde, bodybuilder, mentalidade e humor, permitindo aos usuários explorar facilmente os conteúdos disponíveis. Podem ser listados também utilizando as informações de título do podcast, descrição do episódio, duração do episódio, data de envio, número de views, número de likes, etiquetas e idioma de apresentação.
@@ -501,7 +501,7 @@ E será retornado o seguinte arquivo JSON:
     }    
     ```
   - **Resposta**\
-    O episódio de podcast **será iserido** na lista de episódios caso **não esteja cadastrado**. Caso **já tenha sido cadastrado**, a API atualizará os dados e **retornará os dados deste espisódio** como um objeto **JSON** dentro de uma matriz:
+    O episódio de podcast **será iserido** na lista de episódios caso **não esteja cadastrado**. Caso **já tenha sido cadastrado**, a API atualizará os dados e **retornará os dados deste episódio** como um objeto **JSON** dentro de uma matriz:
     ```json
     [
       {
