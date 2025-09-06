@@ -41,7 +41,7 @@ export const repositoryEditPodcast = async (
           jsonFile.forEach((podcast: PodcastModel) => {
               if (podcast.id === podcastSubs?.id) {
                   console.log("Id equal! Edit!");
-                  // edit podcast properties
+                  // edit partially podcast properties
                   for (let key in podcastSubs) {
                     podcast[key as keyof object] = podcastSubs[key as keyof object]; 
                   }
